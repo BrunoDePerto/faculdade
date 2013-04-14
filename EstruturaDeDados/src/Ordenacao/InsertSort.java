@@ -11,7 +11,6 @@ public class InsertSort {
                 a[j] = pivo;
             }
         }
-        
         return a;
     }
 }
