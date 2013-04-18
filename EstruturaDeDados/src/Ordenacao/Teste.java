@@ -51,29 +51,22 @@ public class Teste {
         }
 
         //MergeSort
-        if(tamanho < 1000000){
         a = geraArray(tamanho);
         t1 = System.currentTimeMillis();//Zera o tempo
         MergeSort.sort(a);
         System.out.println("Tempo de execução do MergeSort para "
                 + tamanho + " itens: "
                 + (System.currentTimeMillis() - t1) / 100 + " décimo de segundo.");
-        }else{
-            System.out.println("Tempo de execução do MergeSort para "
-                + tamanho + " itens: Java heap space");
-        }
+        
+        
         //QuickSort
-        if(tamanho < 1000000){
         a = geraArray(tamanho);
+        System.out.println("Começou");
         t1 = System.currentTimeMillis();//Zera o tempo
         QuickSort.sort(a);
         System.out.println("Tempo de execução do QuickSort para "
                 + tamanho + " itens: "
                 + (System.currentTimeMillis() - t1) / 100 + " décimo de segundo.");
-        }else{
-            System.out.println("Tempo de execução do QuickSort para "
-                + tamanho + " itens: StackOverflow");
-        }
     }
 
     private static char[] geraArray(int tamanho) {
