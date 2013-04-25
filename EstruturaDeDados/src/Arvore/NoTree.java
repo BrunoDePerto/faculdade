@@ -6,17 +6,17 @@ package Arvore;
  */
 public class NoTree {
 
-    private String info = "";
+    private int info = 0;
     private NoTree e = null;
     private NoTree d = null;
 
-    public NoTree(String info) {
+    public NoTree(int info) {
         this.info = info;
         this.e = null;
         this.d = null;
     }
 
-    public String getInfo() {
+    public int getInfo() {
         return info;
     }
 
