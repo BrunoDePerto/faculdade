@@ -19,6 +19,7 @@ public class ED03 {
         t.add(-1);
         t.add(69);
         t.add(4);
+        t.add(80);
         System.out.println("preOrdem");
         t.preOrder();
         System.out.println("");
@@ -27,5 +28,6 @@ public class ED03 {
         System.out.println("");
         System.out.println("posOrdem");
         t.posOrder();
+        System.out.println(t);
     }
 }

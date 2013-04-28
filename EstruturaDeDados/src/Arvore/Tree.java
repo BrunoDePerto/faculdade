@@ -85,4 +85,34 @@ public class Tree {
             System.out.print(temp.getInfo() + " ; ");
         }
     }
+
+    @Override
+    public String toString() {
+        String[] linha = new String[10];
+        int i = 0;
+        String[] retorno = toString(raiz, linha, i);
+        String ret = "";
+        for (String string : retorno) {
+            if (string != null) {
+                ret += string + "\n";
+            }
+        }
+
+        return ret;
+    }
+
+    private String[] toString(NoTree temp, String[] linha, int i) {
+        if (temp != null) {
+            if (linha[i] != null) {
+                linha[i] += temp.getInfo() + " ; ";
+            } else {
+                linha[i] = temp.getInfo() + " ; ";
+            }
+            i++;
+            this.toString(temp.getE(), linha, i);
+            this.toString(temp.getD(), linha, i);
+            i--;
+        }
+        return linha;
+    }
 }
