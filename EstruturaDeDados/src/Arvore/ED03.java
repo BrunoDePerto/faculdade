@@ -5,9 +5,9 @@ package Arvore;
  * @author Bruno
  */
 public class ED03 {
-    
-    public static void main(String args[]){
-        
+
+    public static void main(String args[]) {
+
         Tree t = new Tree();
         t.add(5);
         t.add(11);
@@ -28,6 +28,5 @@ public class ED03 {
         System.out.println("");
         System.out.println("posOrdem");
         t.posOrder();
-        System.out.println(t);
     }
 }

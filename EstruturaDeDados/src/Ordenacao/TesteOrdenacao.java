@@ -1,6 +1,6 @@
 package Ordenacao;
 
-public class Teste {
+public class TesteOrdenacao {
 
     public static void main(String args[]) {
         int tamanho = 1000;
