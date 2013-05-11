@@ -41,94 +41,94 @@ public class AvlTree {
         return height(t.e) - height(t.d);
     }
 
-    public boolean insert(int x) {
-        root = insert(x, root);
+    public boolean insert(int info) {
+        root = insert(info, root);
         return true;
     }
 
-    private AvlNode insert(int x, AvlNode t) {
-        if (t == null) {
-            t = new AvlNode(x, null, null);
-        } else if (x < t.info) {
-            t.e = insert(x, t.e);
-        } else if (x > t.info) {
-            t.d = insert(x, t.d);
+    private AvlNode insert(int info, AvlNode no) {
+        if (no == null) {
+            no = new AvlNode(info, null, null);
+        } else if (info < no.info) {
+            no.e = insert(info, no.e);
+        } else if (info > no.info) {
+            no.d = insert(info, no.d);
         }
-        t = balance(t);
-        return t;
+        no = balance(no);
+        return no;
     }
 
-    public AvlNode balance(AvlNode t) {
-        if (getFactor(t) == 2) {
-            if (getFactor(t.e) > 0) {
-                t = doRightRotation(t);
+    public AvlNode balance(AvlNode no) {
+        if (getFactor(no) == 2) {
+            if (getFactor(no.e) > 0) {
+                no = doRightRotation(no);
             } else {
-                t = doDoubleRightRotation(t);
+                no = doDoubleRightRotation(no);
             }
-        } else if (getFactor(t) == -2) {
-            if (getFactor(t.d) < 0) {
-                t = doLeftRotation(t);
+        } else if (getFactor(no) == -2) {
+            if (getFactor(no.d) < 0) {
+                no = doLeftRotation(no);
             } else {
-                t = doDoubleLeftRotation(t);
+                no = doDoubleLeftRotation(no);
             }
         }
-        t.height = max(height(t.e), height(t.d)) + 1;
-        return t;
+        no.height = max(height(no.e), height(no.d)) + 1;
+        return no;
     }
 
     /**
      * Faz Rotação simples a direita
      */
-    private static AvlNode doRightRotation(AvlNode k2) {
-        AvlNode k1 = k2.e;
-        k2.e = k1.d;
-        k1.d = k2;
-        k2.height = max(height(k2.e), height(k2.d)) + 1;
-        k1.height = max(height(k1.e), k2.height) + 1;
-        return k1;
+    private static AvlNode doRightRotation(AvlNode no2) {
+        AvlNode no1 = no2.e;
+        no2.e = no1.d;
+        no1.d = no2;
+        no2.height = max(height(no2.e), height(no2.d)) + 1;
+        no1.height = max(height(no1.e), no2.height) + 1;
+        return no1;
     }
 
     /**
      * Rotação simples à esquerda
      */
-    private static AvlNode doLeftRotation(AvlNode k1) {
-        AvlNode k2 = k1.d;
-        k1.d = k2.e;
-        k2.e = k1;
-        k1.height = max(height(k1.e), height(k1.d)) + 1;
-        k2.height = max(height(k2.d), k1.height) + 1;
-        return k2;
+    private static AvlNode doLeftRotation(AvlNode no1) {
+        AvlNode no2 = no1.d;
+        no1.d = no2.e;
+        no2.e = no1;
+        no1.height = max(height(no1.e), height(no1.d)) + 1;
+        no2.height = max(height(no2.d), no1.height) + 1;
+        return no2;
     }
 
     /**
      * Rotação dupla à direita
      */
-    private static AvlNode doDoubleRightRotation(AvlNode k3) {
-        k3.e = doLeftRotation(k3.e);
-        return doRightRotation(k3);
+    private static AvlNode doDoubleRightRotation(AvlNode no3) {
+        no3.e = doLeftRotation(no3.e);
+        return doRightRotation(no3);
     }
 
     /**
      * Rotação dupla à esquerda
      */
-    private static AvlNode doDoubleLeftRotation(AvlNode k1) {
-        k1.d = doRightRotation(k1.d);
-        return doLeftRotation(k1);
+    private static AvlNode doDoubleLeftRotation(AvlNode no1) {
+        no1.d = doRightRotation(no1.d);
+        return doLeftRotation(no1);
     }
 
-    public AvlNode search(int el) {
-        return search(root, el);
+    public AvlNode search(int info) {
+        return search(root, info);
     }
 
-    protected AvlNode search(AvlNode p, int el) {
-        while (p != null) {
+    protected AvlNode search(AvlNode no, int info) {
+        while (no != null) {
             /* se valor procuradp == chave do nó retorna referência ao nó */
-            if (el == p.info) {
-                return p;
-            } /* se valor procurado < chave do nó, procurar na sub-árvore esquerda deste nó */ else if (el < p.info) {
-                p = p.e;
+            if (info == no.info) {
+                return no;
+            } /* se valor procurado < chave do nó, procurar na sub-árvore esquerda deste nó */ else if (info < no.info) {
+                no = no.e;
             } /* se valor procurado > chave do nó, procurar na sub-árvore direita deste nó */ else {
-                p = p.d;
+                no = no.d;
             }
         }
         // caso chave não foi achada, retorna null  
@@ -151,11 +151,11 @@ public class AvlTree {
         preorder(root);
     }
 
-    protected void preorder(AvlNode p) {
-        if (p != null) {
-            System.out.print(p.info + " ");
-            preorder(p.e);
-            preorder(p.d);
+    protected void preorder(AvlNode no) {
+        if (no != null) {
+            System.out.print(no.info + " ");
+            preorder(no.e);
+            preorder(no.d);
         }
     }
 
@@ -163,27 +163,27 @@ public class AvlTree {
         postorder(root);
     }
 
-    protected void postorder(AvlNode p) {
-        if (p != null) {
-            postorder(p.e);
-            postorder(p.d);
-            System.out.print(p.info + " ");
+    protected void postorder(AvlNode no) {
+        if (no != null) {
+            postorder(no.e);
+            postorder(no.d);
+            System.out.print(no.info + " ");
         }
     }
 
-    protected AvlNode searchFather(int el) {
-        AvlNode p = root;
-        AvlNode prev = null;
-        while (p != null && !(p.info == el)) {  // acha o nó p com a chave el  
-            prev = p;
-            if (p.info < el) {
-                p = p.d;
+    protected AvlNode searchFather(int info) {
+        AvlNode no = root;
+        AvlNode noPrev = null;
+        while (no != null && !(no.info == info)) {  // acha o nó p com a chave el  
+            noPrev = no;
+            if (no.info < info) {
+                no = no.d;
             } else {
-                p = p.e;
+                no = no.e;
             }
         }
-        if (p != null && p.info == el) {
-            return prev;
+        if (no != null && no.info == info) {
+            return noPrev;
         }
         return null;
     }
@@ -200,32 +200,19 @@ public class AvlTree {
         displaySubTree(root.d, separator);
     }
 
-    private void displaySubTree(AvlNode node, String separator) {
+    private void displaySubTree(AvlNode no, String separacao) {
 
-        if (node != null) {
+        if (no != null) {
 
-            AvlNode father = this.searchFather(node.info);
-            if (node.equals(father.e) == true) {
-                System.out.println(separator + node.info + "(" + node.height + ")" + " (ESQ)");
+            AvlNode father = this.searchFather(no.info);
+            if (no.equals(father.e) == true) {
+                System.out.println(separacao + no.info + "(" + no.height + ")" + " (ESQ)");
             } else {
-                System.out.println(separator + node.info + "(" + node.height + ")" + " (DIR)");
+                System.out.println(separacao + no.info + "(" + no.height + ")" + " (DIR)");
             }
-            displaySubTree(node.e, "     " + separator);
-            displaySubTree(node.d, "     " + separator);
+            displaySubTree(no.e, "     " + separacao);
+            displaySubTree(no.d, "     " + separacao);
         }
     }
 
-    public static void main(String args[]) {
-        AvlTree t = new AvlTree();
-        t.insert(1);
-        t.insert(2);
-        t.insert(3);
-        t.insert(4);
-        t.insert(5);
-        t.insert(6);
-        t.insert(7);
-        t.insert(8);
-        t.insert(9);
-        t.displayTree();
-    }
 }// class  
