@@ -24,7 +24,7 @@ public class AvlTree {
      * Retorna a altura da árvore
      */
     private static int height(AvlNode t) {
-        return t == null ? -1 : t.height;
+        return t == null ? -1 : t.altura;
     }
 
     /**
@@ -72,7 +72,7 @@ public class AvlTree {
                 no = doDoubleLeftRotation(no);
             }
         }
-        no.height = max(height(no.e), height(no.d)) + 1;
+        no.altura = max(height(no.e), height(no.d)) + 1;
         return no;
     }
 
@@ -83,8 +83,8 @@ public class AvlTree {
         AvlNode no1 = no2.e;
         no2.e = no1.d;
         no1.d = no2;
-        no2.height = max(height(no2.e), height(no2.d)) + 1;
-        no1.height = max(height(no1.e), no2.height) + 1;
+        no2.altura = max(height(no2.e), height(no2.d)) + 1;
+        no1.altura = max(height(no1.e), no2.altura) + 1;
         return no1;
     }
 
@@ -95,8 +95,8 @@ public class AvlTree {
         AvlNode no2 = no1.d;
         no1.d = no2.e;
         no2.e = no1;
-        no1.height = max(height(no1.e), height(no1.d)) + 1;
-        no2.height = max(height(no2.d), no1.height) + 1;
+        no1.altura = max(height(no1.e), height(no1.d)) + 1;
+        no2.altura = max(height(no2.d), no1.altura) + 1;
         return no2;
     }
 
@@ -195,7 +195,7 @@ public class AvlTree {
             return;
         }
         String separator = String.valueOf("  |__");
-        System.out.println(this.root.info + "(" + root.height + ")");
+        System.out.println(this.root.info + "(" + root.altura + ")");
         displaySubTree(root.e, separator);
         displaySubTree(root.d, separator);
     }
@@ -206,9 +206,9 @@ public class AvlTree {
 
             AvlNode father = this.searchFather(no.info);
             if (no.equals(father.e) == true) {
-                System.out.println(separacao + no.info + "(" + no.height + ")" + " (ESQ)");
+                System.out.println(separacao + no.info + "(" + no.altura + ")" + " (ESQ)");
             } else {
-                System.out.println(separacao + no.info + "(" + no.height + ")" + " (DIR)");
+                System.out.println(separacao + no.info + "(" + no.altura + ")" + " (DIR)");
             }
             displaySubTree(no.e, "     " + separacao);
             displaySubTree(no.d, "     " + separacao);

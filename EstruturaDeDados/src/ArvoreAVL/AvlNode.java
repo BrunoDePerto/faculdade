@@ -2,7 +2,7 @@ package ArvoreAVL;
 
 public class AvlNode {
 
-    protected int height;       // Height  
+    protected int altura;       // Height  
     protected int info;
     protected AvlNode e, d;
 
@@ -14,6 +14,6 @@ public class AvlNode {
         info = theElement;
         e = lt;
         d = rt;
-        height = 0;
+        altura = 0;
     }
 }
