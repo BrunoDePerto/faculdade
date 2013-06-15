@@ -1,4 +1,10 @@
-package Ordenacao;
+package Teste;
+
+import Ordenacao.BubbleSort;
+import Ordenacao.InsertSort;
+import Ordenacao.MergeSort;
+import Ordenacao.QuickSort;
+import Ordenacao.SelectionSort;
 
 public class TesteOrdenacao {
 

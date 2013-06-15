@@ -34,9 +34,9 @@ public class ListaArranjo {
         }
         //se a lista nao esta cheia prossegue
         //verifica se o numero já existe
-        if (this.find(x)) {
-            return false;
-        }
+//        if (this.find(x)) {
+//            return false;
+//        }
         this.c[this.cont] = x;
         this.cont++;
         return true;

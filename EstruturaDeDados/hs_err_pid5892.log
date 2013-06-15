@@ -1,0 +1,171 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00000000, pid=5892, tid=4372
+#
+# JRE version: 7.0_07-b11
+# Java VM: Java HotSpot(TM) Client VM (23.3-b01 mixed mode windows-x86 )
+# Problematic frame:
+# C  0x00000000
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00e7a400):  JavaThread "main" [_thread_in_Java, id=4372, stack(0x026b0000,0x40eb0000)]
+
+siginfo: ExceptionCode=0xc0000005, ExceptionInformation=0x00000008 0x00000000
+
+Registers:
+EAX=0x04000000, EBX=0x52ebdcf0, ECX=0x42eb0da0, EDX=0x0c800001
+ESP=0x40eaf0d0, EBP=0x40eaf0f8, ESI=0x40eaf0d4, EDI=0x40eaf0fc
+EIP=0x00000000, EFLAGS=0x00010216
+
+Top of Stack: (sp=0x40eaf0d0)
+0x40eaf0d0:   40eb353b 42eb0da0 40eaf0d8 52ec80c3
+0x40eaf0e0:   40eaf0fc 52f20490 00000000 52ec8100
+0x40eaf0f0:   40eaf0d4 40eaf100 40eaf110 40eb03d7
+0x40eaf100:   00001f80 40eb0372 00e7a400 52ec8100
+0x40eaf110:   40eaf18c 6ffca39a 40eaf144 40eaf218
+0x40eaf120:   0000000a 52ec8100 40eb98c0 40eaf224
+0x40eaf130:   00000000 00e7a400 52ec8100 00e7a400
+0x40eaf140:   00e7a400 00e7a400 00f68c48 52ec8100 
+
+Instructions: (pc=0x00000000)
+0xffffffe0:   
+
+
+Register to memory mapping:
+
+EAX=0x04000000 is pointing into the stack for thread: 0x00e7a400
+EBX=0x52ebdcf0 is an oop
+{method} 
+ - klass: {other class}
+ECX=0x42eb0da0 is an oop
+java.lang.Class 
+ - klass: 'java/lang/Class'
+EDX=0x0c800001 is pointing into the stack for thread: 0x00e7a400
+ESP=0x40eaf0d0 is pointing into the stack for thread: 0x00e7a400
+EBP=0x40eaf0f8 is pointing into the stack for thread: 0x00e7a400
+ESI=0x40eaf0d4 is pointing into the stack for thread: 0x00e7a400
+EDI=0x40eaf0fc is pointing into the stack for thread: 0x00e7a400
+
+
+Stack: [0x026b0000,0x40eb0000],  sp=0x40eaf0d0,  free space=1023996k
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+=>0x00e7a400 JavaThread "main" [_thread_in_Java, id=4372, stack(0x026b0000,0x40eb0000)]
+
+Other Threads:
+  0x00f68000 VMThread [stack: 0x01020000,0x01070000] [id=3876]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ def new generation   total 4928K, used 88K [0x42eb0000, 0x43400000, 0x48400000)
+  eden space 4416K,   2% used [0x42eb0000, 0x42ec61b8, 0x43300000)
+  from space 512K,   0% used [0x43300000, 0x43300000, 0x43380000)
+  to   space 512K,   0% used [0x43380000, 0x43380000, 0x43400000)
+ tenured generation   total 10944K, used 0K [0x48400000, 0x48eb0000, 0x52eb0000)
+   the space 10944K,   0% used [0x48400000, 0x48400000, 0x48400200, 0x48eb0000)
+ compacting perm gen  total 12288K, used 531K [0x52eb0000, 0x53ab0000, 0x56eb0000)
+   the space 12288K,   4% used [0x52eb0000, 0x52f34d20, 0x52f34e00, 0x53ab0000)
+No shared spaces configured.
+
+Card table byte_map: [0x00d90000,0x00e40000] byte_map_base: 0x00b78a80
+
+Polling page: 0x006b0000
+
+Code Cache  [0x40eb0000, 0x40ef8000, 0x42eb0000)
+ total_blobs=41 nmethods=0 adapters=18 free_code_cache=32498Kb largest_free_block=33278592
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.017 loading class 0x00ea50c8 done
+Event: 0.017 loading class 0x00e85948 done
+Event: 0.017 loading class 0x00f3c058
+Event: 0.017 loading class 0x00f3c058 done
+Event: 0.017 loading class 0x00f3a4e8
+Event: 0.017 loading class 0x00f3a4e8 done
+Event: 0.018 loading class 0x00f427b0
+Event: 0.018 loading class 0x00f427b0 done
+Event: 0.018 loading class 0x00f45300
+Event: 0.018 loading class 0x00f45300 done
+
+
+Dynamic libraries:
+0x01280000 - 0x012af000 	C:\Program Files (x86)\Java\jdk1.7.0_07\bin\java.exe
+0x77510000 - 0x77667000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x75820000 - 0x75950000 	C:\WINDOWS\SYSTEM32\KERNEL32.DLL
+0x771a0000 - 0x77246000 	C:\WINDOWS\SYSTEM32\KERNELBASE.dll
+0x6f4f0000 - 0x6f597000 	C:\WINDOWS\system32\apphelp.dll
+0x752f0000 - 0x7539e000 	C:\WINDOWS\SYSTEM32\ADVAPI32.dll
+0x74cb0000 - 0x74dc6000 	C:\WINDOWS\SYSTEM32\USER32.dll
+0x720e0000 - 0x722d8000 	C:\WINDOWS\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.9200.16579_none_8937eec6860750f5\COMCTL32.dll
+0x74b70000 - 0x74c21000 	C:\WINDOWS\SYSTEM32\msvcrt.dll
+0x76f90000 - 0x76fc4000 	C:\WINDOWS\SYSTEM32\sechost.dll
+0x753a0000 - 0x7544c000 	C:\WINDOWS\SYSTEM32\RPCRT4.dll
+0x76b50000 - 0x76c4d000 	C:\WINDOWS\SYSTEM32\GDI32.dll
+0x74b50000 - 0x74b6c000 	C:\WINDOWS\SYSTEM32\SspiCli.dll
+0x74b40000 - 0x74b49000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x74ae0000 - 0x74b31000 	C:\WINDOWS\SYSTEM32\bcryptPrimitives.dll
+0x76f70000 - 0x76f90000 	C:\WINDOWS\system32\IMM32.DLL
+0x75450000 - 0x7552d000 	C:\WINDOWS\SYSTEM32\MSCTF.dll
+0x70450000 - 0x7050e000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\msvcr100.dll
+0x6fea0000 - 0x701ec000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\client\jvm.dll
+0x74560000 - 0x74568000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x74410000 - 0x74431000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x75070000 - 0x75076000 	C:\WINDOWS\SYSTEM32\PSAPI.DLL
+0x74de0000 - 0x74e30000 	C:\WINDOWS\SYSTEM32\WS2_32.dll
+0x743a0000 - 0x743ca000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x75a30000 - 0x75a38000 	C:\WINDOWS\SYSTEM32\NSI.dll
+0x71210000 - 0x7121c000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\verify.dll
+0x711f0000 - 0x71210000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\java.dll
+0x70a10000 - 0x70a23000 	C:\Program Files (x86)\Java\jdk1.7.0_07\jre\bin\zip.dll
+0x701f0000 - 0x70319000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 -Xss1000M 
+java_command: Teste.TesteLista
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Program Files (x86)\AMD APP\bin\x86_64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\GNU\GnuPG\pub
+USERNAME=Bruno
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 42 Stepping 7, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8 , 64 bit Build 9200 
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 42 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, ht, tsc, tscinvbit
+
+Memory: 4k page, physical 8370028k(6019388k free), swap 9615212k(6939096k free)
+
+vm_info: Java HotSpot(TM) Client VM (23.3-b01) for windows-x86 JRE (1.7.0_07-b11), built on Sep  7 2012 01:40:56 by "java_re" with unknown MS VC++:1600
+
+time: Sun Jun 09 15:01:36 2013
+elapsed time: 0 seconds
+
